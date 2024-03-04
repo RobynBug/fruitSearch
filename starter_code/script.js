@@ -101,16 +101,20 @@ function searchHandler(e) {
   // TODO
   clearList();
   let value = e.target.value;
-  const itemsArray = search(value);
+  const itemsList = search(value);
   const choices = [];
-  itemsArray.forEach((item) => {
+  if(itemsList != undefined) {
+	
+	itemsList.forEach((item) => {
     for (let i = 0; i < item.length; i++) {
 		if(!choices.includes(item[i])) {
       choices.push(item[i]);
     }
 }
   });
+}
   showSuggestions(choices, value = "");
+  
 }
 
 function showSuggestions(results, inputVal) {
@@ -119,6 +123,7 @@ function showSuggestions(results, inputVal) {
   results.forEach((item) => {
     let newLi = document.createElement("li");
     newLi.innerHTML = item;
+	suggestions.classList.add("has-suggestions")
     suggestions.appendChild(newLi);
   });
   
@@ -131,6 +136,7 @@ function useSuggestion(e) {
 }
 
 const clearList = () => {
+	suggestions.classList.remove("has-suggestions");
 	suggestions.innerHTML = '';
 }
 

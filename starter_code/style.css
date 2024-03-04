@@ -1,27 +1,30 @@
 * {
   /* box-sizing: border-box; */
   box-sizing: border-box;
+  margin: 0;
 }
 
 input:focus {
  /* TODO */
- outline: 0.5px solid orangered;
+ outline: 1px solid rgb(253, 147, 8);
  outline-offset: -1px;
+ border: none;
  
 }
 
 body {
   /* TODO */
   display: flex;
-  background-image: linear-gradient(to right, rgb(245, 214, 61), rgb(232, 91, 15));
-}
+    background-image: linear-gradient(to right, rgb(245, 217, 61), rgb(232, 91, 15));
+  }
 
 input {
  /* TODO */
- background-color: rgb(235, 204, 128);
+ background-image: linear-gradient(to right, rgb(245, 217, 61), rgb(250, 173, 58));
  min-width: 300px;
- max-width: 20vw;
+ width: 25rem;
  height: 40px;
+ border: none;
  font-size: 1rem;
  
 }
@@ -30,33 +33,45 @@ input {
  /* TODO */
  width: 80%;
  height: 80%;
- padding: 15%;
+ padding: 20% 40%;
  
 }
 .search-container input,
 .search-container .suggestions {
   /* TODO */
+ 
 }
 .search-container input {
- /* TODO */
+ margin: 0;
 }
 .search-container .suggestions {
    /* TODO */
 }
 
 ul {
-  /* TODO */
+  text-decoration: none;
+  height: 25vh;
 }
 ul.has-suggestions {
-  /* TODO */
+  background-image: linear-gradient(to right, rgb(245, 217, 61), rgb(250, 173, 58));
+  min-width: 300px;
+  width: 25rem;
+  height: auto;
+  font-size: 1rem;
+  list-style: none;
+  padding: 0;
+  
 }
 ul li {
-  /* TODO */
+  height: 2rem;
+  width: 100%;
+  padding: 0.25rem;
+  
 }
 ul li:hover {
-  /* TODO */
+  background-color: orangered;
 }
 
 input {
-   /* TODO */
+   box-shadow: 0px 1px 0px orangered;
 }
