@@ -4,7 +4,7 @@ const suggestions = document.querySelector(".suggestions ul");
 const fruit = [
   "Apple",
   "Apricot",
-  "Avocado 🥑",
+  "Avocado",
   "Banana",
   "Bilberry",
   "Blackberry",
@@ -84,62 +84,52 @@ const fruit = [
 ];
 
 function search(str) {
-  let results = [];
-
-  // TODO
-  if(str.length > 0) {
-	  results.push(
-    fruit.filter((item) => item.toLowerCase().includes(str.toLowerCase()))
-	
-  );
-  return results;
+  clearList();
+  if (str.length > 0) {
+    let results = fruit.filter((item) =>
+      item.toLowerCase().includes(str.toLowerCase())
+    );
+    return results;
+  } else {
+    return [];
   }
-
 }
 
 function searchHandler(e) {
-  // TODO
   clearList();
-  let value = e.target.value;
+  const value = e.target.value;
   const itemsList = search(value);
-  const choices = [];
-  if(itemsList != undefined) {
-	
-	itemsList.forEach((item) => {
-    for (let i = 0; i < item.length; i++) {
-		if(!choices.includes(item[i])) {
-      choices.push(item[i]);
-    }
-}
-  });
-}
-  showSuggestions(choices, value = "");
-  
+  showSuggestions(itemsList, value);
 }
 
 function showSuggestions(results, inputVal) {
-  // TODO
+  clearList();
 
   results.forEach((item) => {
-    let newLi = document.createElement("li");
-    newLi.innerHTML = item;
-	suggestions.classList.add("has-suggestions")
+    let indexPosition = item.toLowerCase().indexOf(inputVal.toLowerCase());
+    const before = item.substring(0, indexPosition);
+    const matched = item.substring(
+      indexPosition,
+      indexPosition + inputVal.length
+    );
+    const after = item.substring(indexPosition + inputVal.length);
+    const boldText = `${before}<strong>${matched}</strong>${after}`;
+    const newLi = document.createElement("li");
+    newLi.innerHTML = boldText;
+    suggestions.classList.add("has-suggestions");
     suggestions.appendChild(newLi);
   });
-  
 }
 
 function useSuggestion(e) {
-  // TODO
-  input.value = e.target.innerHTML;
+  input.value = e.target.innerText;
   clearList();
 }
 
 const clearList = () => {
-	suggestions.classList.remove("has-suggestions");
-	suggestions.innerHTML = '';
-}
-
+  suggestions.innerHTML = "";
+  suggestions.classList.remove("has-suggestions");
+};
 
 input.addEventListener("keyup", searchHandler);
 suggestions.addEventListener("click", useSuggestion);

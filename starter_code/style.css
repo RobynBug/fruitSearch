@@ -5,73 +5,80 @@
 }
 
 input:focus {
- /* TODO */
- outline: 1px solid rgb(253, 147, 8);
- outline-offset: -1px;
- border: none;
- 
+  outline: 1px solid rgb(253, 147, 8);
+  outline-offset: -1px;
+  border: none;
 }
 
 body {
-  /* TODO */
   display: flex;
-    background-image: linear-gradient(to right, rgb(245, 217, 61), rgb(232, 91, 15));
-  }
+  background-image: linear-gradient(
+    to right,
+    rgb(245, 217, 61),
+    rgb(232, 91, 15)
+  );
+}
 
 input {
- /* TODO */
- background-image: linear-gradient(to right, rgb(245, 217, 61), rgb(250, 173, 58));
- min-width: 300px;
- width: 25rem;
- height: 40px;
- border: none;
- font-size: 1rem;
- 
+  background-image: linear-gradient(
+    to right,
+    rgb(245, 217, 61),
+    rgb(250, 173, 58)
+  );
+  width: 50vw;
+  max-width: 25rem;
+  height: 40px;
+  border: none;
+  font-size: 1rem;
 }
 
 .search-container {
- /* TODO */
- width: 80%;
- height: 80%;
- padding: 20% 40%;
- 
+  flex-direction: column;
+  width: 70vw;
+  height: 60vh;
+  position: relative;
+  left: 35vw;
+  top: 35vh;
 }
-.search-container input,
-.search-container .suggestions {
-  /* TODO */
- 
-}
+
 .search-container input {
- margin: 0;
+  margin: 0;
 }
-.search-container .suggestions {
-   /* TODO */
-}
+
+/* span {
+  font-weight: bold;
+} */
 
 ul {
   text-decoration: none;
   height: 25vh;
 }
 ul.has-suggestions {
-  background-image: linear-gradient(to right, rgb(245, 217, 61), rgb(250, 173, 58));
-  min-width: 300px;
-  width: 25rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(245, 217, 61),
+    rgb(250, 173, 58)
+  );
+  width: 50vw;
+  max-width: 25rem;
   height: auto;
+  max-height: 50vh;
+  overflow-y: scroll;
+  scrollbar-color: orangered orange;
+  scrollbar-width: thin;
   font-size: 1rem;
   list-style: none;
   padding: 0;
-  
 }
 ul li {
   height: 2rem;
   width: 100%;
   padding: 0.25rem;
-  
 }
 ul li:hover {
-  background-color: orangered;
+  background-color: rgb(255, 111, 0);
 }
 
 input {
-   box-shadow: 0px 1px 0px orangered;
+  box-shadow: 0px 1px 0px orangered;
 }
